@@ -1,0 +1,100 @@
+The Describe Table script was executed Sat 11/17/2018  at 06:15 PM
+Scipt was executed by smith865 on 10.151.168.22 in database cs205
+BEGIN
+                                     Table "smith865.employee"
+  Column   |         Type          | Collation | Nullable |                 Default                 
+-----------+-----------------------+-----------+----------+-----------------------------------------
+ empid     | integer               |           | not null | nextval('employee_empid_seq'::regclass)
+ lastname  | character varying(25) |           | not null | 
+ firstname | character varying(25) |           | not null | 
+ street    | character varying(25) |           | not null | 
+ city      | character varying(25) |           | not null | 
+ zip       | character varying(10) |           | not null | 
+ state     | character(2)          |           | not null | 
+Indexes:
+    "employee_pkey" PRIMARY KEY, btree (empid)
+Check constraints:
+    "employee_city_check" CHECK (char_length(btrim(city::text)) > 0)
+    "employee_firstname_check" CHECK (char_length(btrim(firstname::text)) > 0)
+    "employee_lastname_check" CHECK (char_length(btrim(lastname::text)) > 0)
+    "employee_state_check" CHECK (char_length(btrim(state::text)) > 0)
+    "employee_street_check" CHECK (char_length(btrim(street::text)) > 0)
+    "employee_zip_check" CHECK (char_length(btrim(zip::text)) > 0)
+Referenced by:
+    TABLE "department" CONSTRAINT "department_manager_fkey" FOREIGN KEY (manager) REFERENCES employee(empid)
+    TABLE "orders" CONSTRAINT "orders_manager_fkey" FOREIGN KEY (manager) REFERENCES employee(empid)
+
+                                     Table "smith865.department"
+ Column  |         Type          | Collation | Nullable |                   Default                   
+---------+-----------------------+-----------+----------+---------------------------------------------
+ name    | character varying(50) |           | not null | 
+ manager | integer               |           | not null | nextval('department_manager_seq'::regclass)
+Indexes:
+    "department_pkey" PRIMARY KEY, btree (name)
+Check constraints:
+    "department_name_check" CHECK (char_length(btrim(name::text)) > 0)
+Foreign-key constraints:
+    "department_manager_fkey" FOREIGN KEY (manager) REFERENCES employee(empid)
+
+                     Table "smith865.vendor"
+ Column |         Type          | Collation | Nullable | Default 
+--------+-----------------------+-----------+----------+---------
+ name   | character varying(50) |           | not null | 
+ phone  | character varying(14) |           | not null | 
+Indexes:
+    "vendor_pkey" PRIMARY KEY, btree (name)
+Check constraints:
+    "vendor_name_check" CHECK (char_length(btrim(name::text)) > 0)
+    "vendor_phone_check" CHECK (char_length(btrim(phone::text)) > 0)
+Referenced by:
+    TABLE "item" CONSTRAINT "item_vendorname_fkey" FOREIGN KEY (vendorname) REFERENCES vendor(name)
+    TABLE "orders" CONSTRAINT "orders_vendor_fkey" FOREIGN KEY (vendor) REFERENCES vendor(name)
+
+                        Table "smith865.item"
+   Column   |         Type          | Collation | Nullable | Default 
+------------+-----------------------+-----------+----------+---------
+ itemname   | character varying(25) |           | not null | 
+ vendorname | character varying(50) |           | not null | 
+ price      | double precision      |           | not null | 
+Indexes:
+    "item_pkey" PRIMARY KEY, btree (itemname)
+Check constraints:
+    "item_itemname_check" CHECK (char_length(btrim(itemname::text)) > 0)
+    "item_vendorname_check" CHECK (char_length(btrim(vendorname::text)) > 0)
+Foreign-key constraints:
+    "item_vendorname_fkey" FOREIGN KEY (vendorname) REFERENCES vendor(name)
+Referenced by:
+    TABLE "orderdetail" CONSTRAINT "orderdetail_itemname_fkey" FOREIGN KEY (itemname) REFERENCES item(itemname)
+
+                                      Table "smith865.orders"
+  Column   |         Type          | Collation | Nullable |                 Default                 
+-----------+-----------------------+-----------+----------+-----------------------------------------
+ orderid   | integer               |           | not null | nextval('orders_orderid_seq'::regclass)
+ manager   | integer               |           | not null | nextval('orders_manager_seq'::regclass)
+ vendor    | character varying(50) |           | not null | 
+ orderdate | date                  |           | not null | CURRENT_DATE
+Indexes:
+    "orders_pkey" PRIMARY KEY, btree (orderid)
+Foreign-key constraints:
+    "orders_manager_fkey" FOREIGN KEY (manager) REFERENCES employee(empid)
+    "orders_vendor_fkey" FOREIGN KEY (vendor) REFERENCES vendor(name)
+Referenced by:
+    TABLE "orderdetail" CONSTRAINT "orderdetail_orderid_fkey" FOREIGN KEY (orderid) REFERENCES orders(orderid)
+
+                                      Table "smith865.orderdetail"
+  Column  |         Type          | Collation | Nullable |                   Default                    
+----------+-----------------------+-----------+----------+----------------------------------------------
+ orderid  | integer               |           | not null | nextval('orderdetail_orderid_seq'::regclass)
+ itemname | character varying(25) |           | not null | 
+ quantity | integer               |           | not null | 
+ price    | double precision      |           | not null | 
+Indexes:
+    "orderdetail_pk" PRIMARY KEY, btree (orderid, itemname)
+Check constraints:
+    "orderdetail_quantity_check" CHECK (quantity > 0)
+Foreign-key constraints:
+    "orderdetail_itemname_fkey" FOREIGN KEY (itemname) REFERENCES item(itemname)
+    "orderdetail_orderid_fkey" FOREIGN KEY (orderid) REFERENCES orders(orderid)
+
+COMMIT
+End of table descriptions

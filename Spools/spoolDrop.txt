@@ -1,0 +1,29 @@
+Drop Table scripts were executed  Sat 11/17/2018   at  06:15 PM
+Scipt was executed by smith865 on 10.151.168.22 in database cs205
+BEGIN
+Dropping Employee Table
+DROP TABLE
+Employee Table Dropped
+
+Dropping Department Table
+DROP TABLE
+Department Table Dropped
+
+Dropping Item Table
+DROP TABLE
+Item Table Dropped
+
+Dropping Vendor Table
+DROP TABLE
+Vendor Table Dropped
+
+Dropping OrderDetail Table
+DROP TABLE
+OrderDetail Table Dropped
+
+Dropping Order Table
+DROP TABLE
+Order Table Dropped
+
+All tables have been dropped
+COMMIT

@@ -1,0 +1,66 @@
+Reading all data from Employee
+ empid | lastname | firstname |        street         |      city      |  zip  | state 
+-------+----------+-----------+-----------------------+----------------+-------+-------
+     1 | Smith    | John      | 123 Main Street       | NYC            | 12345 | NY
+     2 | Tart     | Pop       | 23 Kellog Way         | Battle Creek   | 49016 | MI
+     3 | Bit      | Fit       | 19 Fitness Court      | Danbury        | 06810 | CT
+     4 | Sung     | Sam       | 85 Korea Avenue       | Los Angeles    | 90210 | CA
+     5 | Armour   | Under     | 56 Expedition Lane    | Bolder         | 54321 | CO
+     6 | Packard  | Hewlett   | 10 Technology Terrace | Silicon Valley | 99999 | CA
+(6 rows)
+
+Reading all data from Department
+      name      | manager 
+----------------+---------
+ Seafood        |       1
+ Bakery         |       5
+ Deli           |       3
+ Cheese         |       4
+ Meat           |       2
+ Prepared Foods |       6
+(6 rows)
+
+Reading all data from Vendor
+            name            |     phone      
+----------------------------+----------------
+ Mark's Meat Market         | (908)-555-1234
+ Samuel Seafood Supppliers  | 132-456-7890
+ Daniel Deli Delivery       | 987-654-3210
+ Cathy Cheese Corner        | 963-852-7410
+ Bobby Bakery Business      | 014-258-3690
+ Patricia Prepared Portions | 784-951-6203
+(6 rows)
+
+Reading all data from Item
+     itemname     |         vendorname         | price 
+------------------+----------------------------+-------
+ Munster          | Cathy Cheese Corner        |  2.32
+ Roast Beef       | Mark's Meat Market         |  9.15
+ Sliced Deli Meat | Daniel Deli Delivery       |  5.89
+ Mystery Sandwich | Patricia Prepared Portions | 12.25
+ Salmon           | Samuel Seafood Supppliers  | 16.21
+ Baked Bread      | Bobby Bakery Business      |  0.99
+(6 rows)
+
+Reading all data from Orders
+ orderid | manager |           vendor           | orderdate  
+---------+---------+----------------------------+------------
+       1 |       4 | Cathy Cheese Corner        | 2018-11-17
+       2 |       2 | Mark's Meat Market         | 2018-11-17
+       3 |       1 | Samuel Seafood Supppliers  | 2018-11-17
+       4 |       3 | Daniel Deli Delivery       | 2018-11-17
+       5 |       6 | Patricia Prepared Portions | 2018-11-17
+       6 |       5 | Bobby Bakery Business      | 2018-11-17
+(6 rows)
+
+Reading all data from OrderDetail
+ orderid |     itemname     | quantity | price  
+---------+------------------+----------+--------
+       6 | Baked Bread      |       15 |  14.85
+       3 | Salmon           |       15 | 243.15
+       6 | Sliced Deli Meat |       15 |  88.35
+       6 | Mystery Sandwich |       15 | 183.75
+       6 | Munster          |       15 |   34.8
+       6 | Roast Beef       |       15 | 137.25
+(6 rows)
+

@@ -1,0 +1,29 @@
+Create Table scripts were executed  Sat 11/17/2018   at  06:15 PM
+Scipt was executed by smith865 on 10.151.168.22 in database cs205
+BEGIN
+Creating the Employee table...
+CREATE TABLE
+Completed creating the Employee Table
+____________________________
+Creating the Department table...
+CREATE TABLE
+Completed creating the Department Table
+____________________________
+Creating the Vendor Table...
+CREATE TABLE
+Completed creating the Vendor Table
+____________________________
+Creating the Item table...
+CREATE TABLE
+Completed creating the Item Table
+____________________________
+Creating the Orders Table...
+CREATE TABLE
+Completed creating the Order Table
+____________________________
+Creating the OrderDetail Table...
+CREATE TABLE
+Completed creation the OrderDetail Table
+
+All tables have been created
+COMMIT

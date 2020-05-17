@@ -1,0 +1,80 @@
+The User Edits script was executed Sat 11/17/2018  at 06:15 PM
+Scipt was executed by smith865 on 10.151.168.22 in database cs205
+Deleting all current data
+Deleting from Orders...
+DELETE 0
+
+Deleting from Department...
+DELETE 0
+
+Deleting from Employee...
+DELETE 0
+
+Deleting from OrderDetail...
+DELETE 0
+
+Deleting from Item...
+DELETE 0
+
+Deleting from Vendor...
+DELETE 0
+
+Done Deleting data
+__________________________________
+Performing Data Insertion For Employee...
+INSERT 0 6
+Done Inserting Into Employee
+
+Performing Data Insertion For Department...
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+Done Inserting Into Department
+
+Inserting Into Vendor
+INSERT 0 6
+Done inserting into Vendor
+
+Inserting into Item
+INSERT 0 6
+Done Inserting into Item
+
+Inserting into Orders
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+Done Inserting into Orders
+
+Inserting into OrderDetail
+DO
+Done inserting into OrderDetail
+
+__________________________________
+Performing Updates
+Updating Employee
+Done updating Depart
+
+Updating Department
+Done updating Department
+
+Updating Vendor
+Done updating Vendor
+
+Updating Item
+Done updating Item
+
+Updating Order
+Done updating Order
+
+Updating OrderDetail
+Done updating OrderDetail
+
+Done performing Updates
+__________________________________
+End of script reached
